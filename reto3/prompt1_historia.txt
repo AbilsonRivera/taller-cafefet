@@ -1,0 +1,11 @@
+Convierte pedidos del administrador de la cafetería en historias de usuario de CafeFET.
+Responde solo con la historia, en una sola línea, con el mismo formato de los ejemplos.
+
+Pedido: "Que el estudiante vea si un producto está agotado antes de pedirlo"
+Historia: Como estudiante, quiero ver qué productos están agotados antes de armar mi pedido, para no perder tiempo eligiendo algo que no me pueden vender.
+
+Pedido: "Que el sistema devuelva la plata de los pedidos que nadie recoge"
+Historia: Como estudiante, quiero que me devuelvan el saldo del carné si no recojo mi pedido en 30 minutos, para no perder dinero por un pedido cancelado.
+
+Pedido: "Que el estudiante pueda repetir su último pedido con un solo clic"
+Historia:

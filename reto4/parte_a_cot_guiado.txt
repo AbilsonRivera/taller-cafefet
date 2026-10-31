@@ -1,0 +1,26 @@
+Un estudiante con saldo de $3.000 hizo un domingo a las 18:40 un pedido de 6 productos que suman $3.800, uno de ellos agotado, y la función lo aceptó. La app le pasa a la función solo la hora entera (hora = 18).
+Datos: len(productos) = 6, est.saldo = 3000, suma de precios = 3800, hora = 18, día = domingo, un producto con agotado = True.
+Responde siguiendo exactamente estos pasos:
+
+Paso 1. Primer if: len(productos) > 6. Reemplaza el valor, di si es True o False y si la función retorna aquí.
+Paso 2. Segundo if: est.saldo - suma de precios < -1000. Calcula primero la resta, luego compárala con -1000, di si es True o False y si la función retorna aquí.
+Paso 3. Última línea: 7 <= hora <= 18. Reemplaza el valor y di qué retorna la función.
+Paso 4. Para cada regla de <reglas>, busca la línea del código que la verifica. Si ninguna línea la verifica, escribe «no se valida».
+Paso 5. Lista los errores, cada uno con la línea y la corrección.
+
+<reglas>
+1. Se reciben pedidos de lunes a sábado, de 7:00 a 18:00.
+2. Máximo 5 productos por pedido.
+3. Se paga con el saldo del carné; el saldo nunca puede quedar negativo.
+4. Los productos agotados no se pueden pedir.
+5. Si el pedido no se recoge en 30 minutos, se cancela y se devuelve el saldo.
+</reglas>
+
+<codigo>
+def crear_pedido(est, productos, hora):
+    if len(productos) > 6:
+        return False
+    if est.saldo - sum(p.precio for p in productos) < -1000:
+        return False
+    return 7 <= hora <= 18
+</codigo>

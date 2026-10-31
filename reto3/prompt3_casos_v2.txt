@@ -1,0 +1,28 @@
+Eres analista de pruebas del equipo CafeFET, el sistema de pedidos anticipados de la cafetería de la FET.
+A partir de los criterios de aceptación, escribe los casos de prueba.
+
+<criterios>
+CA1. Pedido repetido exitoso (regla 4)
+- Dado que el producto solicitado estaba en mi último pedido y actualmente está disponible
+- Cuando repito ese pedido con un solo clic
+- Entonces se crea el nuevo pedido, se descuenta el saldo del carné y se confirma la compra
+
+CA2. Producto agotado impide repetición (regla 4)
+- Dado que uno de los productos de mi último pedido está actualmente agotado
+- Cuando intento repetir mi pedido completo con un solo clic
+- Entonces el sistema me muestra el producto agotado como opción no seleccionable y no permite finalizar la compra
+
+CA3. Saldo insuficiente impide repetición (regla 3)
+- Dado que el saldo actual de mi carné es menor al precio total del último pedido
+- Cuando intento repetir mi pedido con un solo clic
+- Entonces el sistema me indica que no hay saldo suficiente y cancela la operación sin restar dinero
+
+CA4. Pedido no recogido en tiempo (regla 5)
+- Dado que mi pedido repetido fue realizado hace más de 30 minutos
+- Cuando intento finalizar o consultar el estado del pedido
+- Entonces el sistema cancela automáticamente el pedido y devuelve el saldo al carné
+</criterios>
+
+Entrega solo una tabla Markdown con las columnas: Caso | Entrada | Resultado esperado | Criterio que cubre.
+En la columna Entrada usa datos concretos (productos, precios, saldo del carné, día y hora).
+Antes de entregar, revisa que cada criterio tenga al menos un caso; si falta, agrégalo e indica cuál agregaste.

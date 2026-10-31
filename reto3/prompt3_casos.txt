@@ -1,0 +1,13 @@
+Eres analista de pruebas del equipo CafeFET, el sistema de pedidos anticipados de la cafetería de la FET.
+A partir de los criterios de aceptación, escribe los casos de prueba.
+
+<criterios>
+CA1. Repetir pedido anterior
+- Dado que es un estudiante en la cafetería de la FET
+- Cuando realiza clic en el botón para repetir su último pedido
+- Entonces se cargan automáticamente los productos del pedido previo sin necesidad de seleccionarlos manualmente
+</criterios>
+
+Entrega solo una tabla Markdown con las columnas: Caso | Entrada | Resultado esperado | Criterio que cubre.
+En la columna Entrada usa datos concretos (productos, precios, saldo del carné, día y hora).
+Antes de entregar, revisa que cada criterio tenga al menos un caso; si falta, agrégalo e indica cuál agregaste.

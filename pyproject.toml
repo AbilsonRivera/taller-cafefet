@@ -1,0 +1,9 @@
+[project]
+name = "taller-cafefet"
+version = "0.1.0"
+description = "Taller de ingeniería de prompts y de contexto · CafeFET · Diplomado FET"
+requires-python = ">=3.10"
+dependencies = [
+    "ollama>=0.5",
+    "pydantic>=2",
+]

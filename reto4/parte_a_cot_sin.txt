@@ -1,0 +1,19 @@
+Un estudiante con saldo de $3.000 hizo un domingo a las 18:40 un pedido de 6 productos que suman $3.800, uno de ellos agotado, y la función lo aceptó. La app le pasa a la función solo la hora entera (hora = 18).
+¿Por qué crear_pedido dejó pasar el pedido? Responde en una línea.
+
+<reglas>
+1. Se reciben pedidos de lunes a sábado, de 7:00 a 18:00.
+2. Máximo 5 productos por pedido.
+3. Se paga con el saldo del carné; el saldo nunca puede quedar negativo.
+4. Los productos agotados no se pueden pedir.
+5. Si el pedido no se recoge en 30 minutos, se cancela y se devuelve el saldo.
+</reglas>
+
+<codigo>
+def crear_pedido(est, productos, hora):
+    if len(productos) > 6:
+        return False
+    if est.saldo - sum(p.precio for p in productos) < -1000:
+        return False
+    return 7 <= hora <= 18
+</codigo>

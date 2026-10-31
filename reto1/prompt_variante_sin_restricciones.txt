@@ -1,0 +1,21 @@
+[QUÉ QUIERO] Escribe la función crear_pedido(estudiante, productos, ahora) en Python 3.12. Debe validar un pedido anticipado de CafeFET y, si es válido, descontar el total del saldo del carné.
+
+[PARA QUIÉN] La usará el backend FastAPI de CafeFET, el sistema de pedidos anticipados de la cafetería de la FET, y la mantendrán desarrolladores junior.
+
+[CONTEXTO] El estudiante hace el pedido desde la app y lo recoge en la cafetería. La función recibe:
+- estudiante: objeto con el atributo saldo (int, pesos colombianos).
+- productos: lista de objetos con nombre (str), precio (int, pesos) y agotado (bool).
+- ahora: datetime con la fecha y la hora en que se hace el pedido.
+Las reglas de negocio de CafeFET son:
+<reglas>
+1. Se reciben pedidos de lunes a sábado, de 7:00 a 18:00. A las 18:00 en punto todavía se recibe; a las 18:01 ya no. Los domingos no se reciben pedidos.
+2. Máximo 5 productos por pedido. Un pedido vacío no es válido.
+3. Se paga con el saldo del carné; el saldo nunca puede quedar negativo.
+4. Los productos agotados no se pueden pedir.
+5. Si el pedido no se recoge en 30 minutos, se cancela y se devuelve el saldo. La cancelación la hace otro proceso; esta función solo calcula la hora límite de recogida.
+</reglas>
+
+[FORMATO] Devuelve solo el código, con type hints y docstring. La función retorna una tupla (aceptado, motivo, recoger_antes_de):
+- aceptado: bool.
+- motivo: "OK" si se acepta, o una frase que diga qué regla se incumplió.
+- recoger_antes_de: datetime con ahora + 30 minutos si se acepta, o None si se rechaza.

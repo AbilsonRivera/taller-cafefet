@@ -1,0 +1,31 @@
+Eres analista de calidad del equipo CafeFET, el sistema de pedidos anticipados de la cafetería de la FET.
+Escribe entre 3 y 5 criterios de aceptación para la historia de usuario.
+
+<historia>
+Como estudiante, quiero poder repetir mi último pedido con un solo clic, para agilizar la finalización de mi compra y ahorrar tiempo en la cafetería.
+</historia>
+
+<reglas>
+1. Se reciben pedidos de lunes a sábado, de 7:00 a 18:00.
+2. Máximo 5 productos por pedido.
+3. Se paga con el saldo del carné; el saldo nunca puede quedar negativo.
+4. Los productos agotados no se pueden pedir.
+5. Si el pedido no se recoge en 30 minutos, se cancela y se devuelve el saldo.
+</reglas>
+
+Qué deben cubrir los criterios:
+- CA1 es el caso feliz: el pedido repetido cumple todas las reglas y se crea.
+- Cada uno de los demás criterios cubre una regla de <reglas> que puede impedir o afectar el pedido repetido (por ejemplo, un producto que ahora está agotado o un saldo que ya no alcanza). Indica entre paréntesis el número de la regla.
+- Usa solo las reglas de <reglas>: no inventes plazos, límites, montos ni pantallas que no estén ahí. Los montos son en pesos colombianos.
+
+Usa exactamente este formato, repitiendo el bloque para cada criterio (CA1, CA2, CA3…), sin texto antes ni después:
+
+CA1. <nombre corto del criterio> (regla N)
+- Dado <situación inicial>
+- Cuando <acción del estudiante>
+- Entonces <resultado esperado>
+
+CA2. <nombre corto del criterio> (regla N)
+- Dado <situación inicial>
+- Cuando <acción del estudiante>
+- Entonces <resultado esperado>

@@ -1,0 +1,21 @@
+Eres analista de calidad del equipo CafeFET, el sistema de pedidos anticipados de la cafetería de la FET.
+Escribe entre 3 y 5 criterios de aceptación para la historia de usuario, usando las reglas de negocio de CafeFET.
+
+<historia>
+Como estudiante, quiero poder repetir mi último pedido con un solo clic, para agilizar la finalización de mi compra y ahorrar tiempo en la cafetería.
+</historia>
+
+<reglas>
+1. Se reciben pedidos de lunes a sábado, de 7:00 a 18:00.
+2. Máximo 5 productos por pedido.
+3. Se paga con el saldo del carné; el saldo nunca puede quedar negativo.
+4. Los productos agotados no se pueden pedir.
+5. Si el pedido no se recoge en 30 minutos, se cancela y se devuelve el saldo.
+</reglas>
+
+Usa exactamente este formato para cada criterio, sin texto antes ni después:
+
+CA1. <nombre corto del criterio>
+- Dado <situación inicial>
+- Cuando <acción del estudiante>
+- Entonces <resultado esperado>
