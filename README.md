@@ -99,12 +99,14 @@ uv run evalua_cafefet.py --modelo qwen3.5:0.8b
 
 ## Reflexión del grupo
 
-**¿Qué técnica tuvo más efecto en nuestro caso?** Darle al modelo el contexto que no tiene: las reglas de CafeFET, delimitadas en `<reglas>` o puestas en el system prompt. Fue el salto más grande en todos los retos. La función pasó de JavaScript genérico a Python con 4 de 5 reglas, y el revisor pasó de encontrar 0–1 errores a encontrar 3–4. Sin las reglas, el modelo toma el código con errores como si fuera la especificación. En segundo lugar pondríamos el encadenamiento, no tanto porque mejore la salida sino porque nos dejó ver **en qué paso** nacía cada error.
+Al empezar pensábamos que lo importante era escribir bonita la pregunta, pero lo que más cambió los resultados fue darle al modelo la información que no tenía. Cuando le pedimos «haz una función para crear pedidos» nos dio algo en JavaScript para una tienda cualquiera. Cuando le pasamos las reglas de CafeFET dentro de `<reglas>`, ya hizo una función en Python que cumplía casi todo. Con el revisor pasó lo mismo: sin las reglas casi no encontraba errores, y con el system prompt encontró 3 o 4 de 5. Por eso creemos que la técnica con más efecto fue darle el contexto, o sea, las reglas del negocio. También nos sirvió hacer el reto 3 por pasos, porque así vimos en qué parte se empezaba a equivocar.
 
-**Si mañana le pidiéramos a una IA que programe una funcionalidad de CafeFET, haríamos esto distinto:**
+Nos sorprendió que el modelo se equivoca con mucha seguridad. Inventó una regla de 24 horas, puso precios en euros, dijo que había revisado todo cuando había casos que no cuadraban, y en el reto 4 hizo mal una resta mientras «razonaba». También vimos que en un chat largo se le olvida lo que le dijiste al principio, pero si la regla está en el system prompt no se le olvida.
 
-1. **Escribir las reglas con casos límite concretos** (18:00 acepta y 18:01 rechaza; 5 productos sí y 6 no). El modelo falló los límites en todos los retos, aunque se los explicamos en prosa.
-2. **Poner lo obligatorio en el formato de salida.** Lo que no aparece ahí se pierde, como pasó con el descuento del saldo.
-3. **Dividir la tarea en pasos pequeños** y darle a cada paso el contexto que necesita. Un paso que no recibe las reglas las inventa.
-4. **Dejar las reglas permanentes en el system prompt** o en un `AGENTS.md`, no en un mensaje del chat, porque en una conversación larga se recortan.
-5. **No confiar en la autoverificación ni en el razonamiento escrito.** El modelo dijo «verificado» con casos que contradecían el criterio y «razonó» con restas mal hechas. Lo que genere se prueba con pruebas reales y lo revisa una persona.
+Si mañana le pidiéramos a una herramienta de IA que programe algo de CafeFET, haríamos esto diferente:
+
+- Darle todas las reglas y con ejemplos de los casos límite (por ejemplo, a las 18:00 sí se recibe y a las 18:01 no), porque explicadas solo con palabras las falló.
+- Decirle claramente qué tiene que entregar, porque lo que no pusimos en el formato lo olvidó, como descontar el saldo.
+- Pedirle el trabajo por partes y no todo de una vez.
+- Poner las reglas fijas en el system prompt y no en el chat.
+- Revisar y probar siempre lo que genere, porque aunque se vea bien puede tener errores.
